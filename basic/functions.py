@@ -21,10 +21,10 @@ def fibonacci(x):
     else : return fibonacci(x - 1) + fibonacci(x - 2)
 
 def squareRootBi(x,epsilon):
-    assert x >= 0
-    assert epsilon > 0
+    assert x >= 0, 'x must be non-negative ,not ' + str(x)
+    assert epsilon > 0,'epsilon must be positive, not ' + str(epsilon)
     low  = 0
-    high = x
+    high = max(x, 1.0)
     guess = (low + high)/2.0
     ctr = 1
     while abs(guess**2 - x) > epsilon and ctr <= 100:
@@ -34,13 +34,12 @@ def squareRootBi(x,epsilon):
             high = guess
         guess = (high + low)/2.0
         ctr += 1
-    assert ctr <= 100
-    print (ctr,guess)
+    assert ctr <= 100, 'Iteration count exceeded'
+    print ('Bi method  Num iterations:  ', ctr , 'answer : ' , guess)
     return guess
 
-
-a = squareRootBi(24,0.001)
-print(a)
+squareRootBi(24,0.001)
+squareRootBi(0.25,0.0001)
 
 z = fibonacci(12)
 print(z)
