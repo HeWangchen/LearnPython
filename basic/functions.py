@@ -38,8 +38,28 @@ def squareRootBi(x,epsilon):
     print ('Bi method  Num iterations:  ', ctr , 'answer : ' , guess)
     return guess
 
+
+def squareRootNR(x , epsilon):
+    assert x >= 0, 'x must be non-negative ,not ' + str(x)
+    assert epsilon > 0,'epsilon must be positive, not ' + str(epsilon)
+    x = float(x)
+    guess = x/2.0
+    #guess = 0.001
+    diff = guess**2 - x
+    ctr = 1
+    while(abs(diff) > epsilon and ctr <= 100):
+        guess = guess - diff/(2.0*guess)
+        diff = guess**2 - x
+        ctr += 1
+    assert ctr <= 100 ,'Iteration count exceeded'
+    print ('NR method  Num ,iterations: ', ctr ,'Answer : ',guess)
+    return guess
+
+
 squareRootBi(24,0.001)
+squareRootNR(24,0.001)
 squareRootBi(0.25,0.0001)
+squareRootNR(0.25,0.0001)
 
 z = fibonacci(12)
 print(z)
