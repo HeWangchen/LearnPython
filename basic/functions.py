@@ -4,12 +4,12 @@ def sqrt(x):
         while ans*ans < x:
             ans += 1
         if ans*ans != x:
-            print(x , 'is not a Integer square！\n')
+            print(x , 'is not a Integer square',end = '...\n')
             return None
         else:
             return ans
     else:
-        print(x,'must > 0 !\n')
+        print(x,'must > 0 !',end = '...\n')
         return None
 
 def f(x):
@@ -55,6 +55,29 @@ def squareRootNR(x , epsilon):
     print ('NR method  Num ,iterations: ', ctr ,'Answer : ',guess)
     return guess
 
+#import math
+##function
+#def hyp(base,height):
+#    hyp = math.sqrt(base*base + height*height)
+#    print ('Base : ' , str(base) , 'height : ' , str(height) , 'hyp : ' , str(hyp))
+#    return hyp
+
+## Get base
+#inputOK = False
+#while not inputOK:
+#    base = input('Input base: ')
+#    if type(base) == type(1.0): inputOK = True
+#    else: print('Error : base must be a floating number~')
+
+## Get height
+#inputOK = False
+#while not inputOK:
+#    height = input('Input height: ')
+#    if type(height) == type(1.0) : inputOK = True
+#    else: print('Error : height must be a floating number~')
+
+
+#hyp(base,height)
 
 squareRootBi(24,0.001)
 squareRootNR(24,0.001)
